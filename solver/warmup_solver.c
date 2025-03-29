@@ -4,40 +4,49 @@
 #define OUTPUT_DIR "output/"         
 #define SOLUTION_FILE "solution.txt"
 
+
+int calculaViagem(int quantidadeDeAlunos, int qtdPessoaCabine) {
+    int qtdViagem = 1;
+
+    if (quantidadeDeAlunos < 1) {
+        return 0;
+    }
+
+    while (quantidadeDeAlunos >= qtdPessoaCabine) {
+        quantidadeDeAlunos -= qtdPessoaCabine; 
+        qtdViagem++;
+    }
+
+    return qtdViagem;
+}
+
+
 void solve_warmup(FILE* ptr_in_file, char* file_name, const char* warmup_instance) {
+    FILE *fwsolptr;
+    int quantidadeDeAlunos, qtdPessoaCabine, resultado;
 
-    FILE *froutptr, *fwsolptr;
-    char line[100];
-    char out_file[100];
+    // Lendo os valores do arquivo de entrada
+    if (fscanf(ptr_in_file, "%d %d",  &qtdPessoaCabine, &quantidadeDeAlunos) != 2) {
+        printf("Erro ao ler os valores do arquivo de entrada!\n");
+        exit(1);
+    }
 
-    out_file[0] = '\0';
-    strcat(out_file, warmup_instance);
-    strcat(out_file, OUTPUT_DIR);
-    strcat(out_file, file_name);
-    
-    // Creating solution file
+    // Calculando a quantidade de viagens
+    resultado = calculaViagem(quantidadeDeAlunos, qtdPessoaCabine);
+
+    // Criando o arquivo de solução
     fwsolptr = fopen(SOLUTION_FILE, "w");
     if (fwsolptr == NULL) {
-        printf("File '%s' can't be opened\n", SOLUTION_FILE);
+        printf("Erro ao abrir o arquivo de solução '%s'\n", SOLUTION_FILE);
         exit(1);
     }
 
-    // Opening answer file
-    froutptr = fopen(out_file, "r");
-    if (froutptr == NULL) {
-        printf("File '%s' can't be opened\n", out_file);
-        exit(1);
-    }
-
-    // Reading from the answer file and writing to the solution file
-    while (fgets(line, 100, froutptr)) {
-        fputs(line, fwsolptr);
-    }
-
-    fclose(froutptr);
+    // Escrevendo o resultado no arquivo de solução
+    fprintf(fwsolptr, "%d\n", resultado);
 
     fclose(fwsolptr);
 }
+
 
 int check_warmup_solution(const char* file_name, const char* warmup_instance) {
 
