@@ -44,7 +44,10 @@ int main() {
                 return 1;
             }
 
-            solve_warmup(fptr, str_dir->d_name, WARMUP_INSTANCE);
+            solve_warmup(fptr);
+
+
+
             success = check_warmup_solution(str_dir->d_name, WARMUP_INSTANCE);
 
             printf("Test %s %s.\n", str_dir->d_name, success ? "SUCCESS" : "FAILURE");

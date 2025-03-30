@@ -6,7 +6,7 @@
 #include <string.h>
 
 // Função que resolve o problema do warmup
-void solve_warmup(FILE* ptr_in_file, char* file_name, const char* warmup_instance);
+void solve_warmup(FILE* ptr_in_file);
 
 // Função para checar a solução do warmup
 int check_warmup_solution(const char* file_name, const char* warmup_instance);

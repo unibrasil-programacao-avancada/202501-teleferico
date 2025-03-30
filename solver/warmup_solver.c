@@ -4,7 +4,7 @@
 #define OUTPUT_DIR "output/"         
 #define SOLUTION_FILE "solution.txt"
 
-void solve_warmup(FILE* ptr_in_file, char* file_name, const char* warmup_instance) {
+void solve_warmup(FILE* ptr_in_file) {
     int quantidadeDeAlunos, qtdPessoaCabine, resultado;
 
     // Lendo os valores do arquivo de entrada
