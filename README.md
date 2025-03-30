@@ -43,9 +43,6 @@ Se a cabine comporta **C = 10** pessoas e a turma possui **A = 20** alunos, os a
 
 ### Estrutura de Pastas
 
-root/ ├── warmup.c // Arquivo principal ├── include/ │ └── warmup_solver.h └── solver/ └── warmup_solver.c
-
-
 As instâncias de teste estão organizadas em pastas dentro do diretório da instância (ex.: `09-teleferico/input` e `09-teleferico/output`).
 
 ---
@@ -93,5 +90,21 @@ A função `check_warmup_solution` compara o conteúdo de `solution.txt` (result
 Para compilar o projeto, abra um terminal na pasta raiz do projeto e execute:
 
 ```bash
-gcc -Wall -Wextra -pedantic -o warmup warmup.c solver/warmup_solver.c -I warmup/include
+gcc -Wall -Wextra -pedantic -o warmup warmup.c solver/warmup_solver.c -I warmup/include 
+```
+
+### Rodar o projeto
+Depois de compilar, abra um terminal na pasta raiz do projeto e execute:
+
+```bash
+./warmup
+```
+
+## Desempenho
+Após a execução dos testes, os resultados obtidos foram:
+
+- **Total Success:** 39
+- **Total Failures:** 0
+
+Isso indica que a solução implementada passou em todas as instâncias de teste.
 
